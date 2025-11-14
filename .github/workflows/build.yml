@@ -20,8 +20,10 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build
+    - name: Build with OpenSSL legacy support
       run: npm run build
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
 
     - name: Upload build folder
       uses: actions/upload-artifact@v4
